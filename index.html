@@ -152,6 +152,241 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-prototype" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <hr>
+<h2 id="js的原型链：prototype"><a href="#js的原型链：prototype" class="headerlink" title="js的原型链：prototype"></a>js的原型链：prototype</h2><blockquote>
+<p>1.定义：原型链是一条由一系列原型对象组成的自底而上的访问链，主要目的是用来实现对象属性的共享以及继承，然而这个原型链顶端的原型对象的原型是null，也就是说整个原型链结束与此。原型是一个对象，其他的对象通过它来继承属性。（注：任何对象都有原型，包括原型本身，远行对象是某个对象的原型所引用的对象。）</p>
+</blockquote>
+<h3 id="1-安装下载nodejs"><a href="#1-安装下载nodejs" class="headerlink" title="1.安装下载nodejs"></a>1.安装下载nodejs</h3><blockquote>
+<p>1.1 Nodejs是一个运行环境，这个运行环境运行js代码。（浏览器）<br><a href="https://npm.taobao.org/mirrors/node/v8.9.3/" target="_blank" rel="noopener">https://npm.taobao.org/mirrors/node/v8.9.3/</a> node-v8.9.3-x64.msi (请点击Nodejs下载地址)</p>
+</blockquote>
+<hr>
+<blockquote>
+<p>1.2 node、npm管理工具验证是否安装成功<br>    开始-&gt;运行-&gt;输入cmd (进入doc命令)<br>    <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">E:\&gt;node -v </span><br><span class="line">E:\&gt;npm -v</span><br></pre></td></tr></table></figure></p>
+</blockquote>
+<h3 id="2-安装hexo工具"><a href="#2-安装hexo工具" class="headerlink" title="2.安装hexo工具"></a>2.安装hexo工具</h3><blockquote>
+<p>2.1 切换以下npm下载源 (为了下载快一点，切换成淘宝镜像源。),再安装hexo工具<br>  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">E:\&gt;npm config set registry https://registry.npm.taobao.org</span><br><span class="line">E:\&gt;npm install -g hexo-cli</span><br></pre></td></tr></table></figure></p>
+</blockquote>
+<h3 id="3-使用如下命令安装下载博客源代码"><a href="#3-使用如下命令安装下载博客源代码" class="headerlink" title="3. 使用如下命令安装下载博客源代码"></a>3. 使用如下命令安装下载博客源代码</h3><blockquote>
+<p>3.1 创建一个合适的文件(你的路径没有中文)并进入<br> <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">E:\&gt;hexo init blog </span><br><span class="line">E:\&gt;cd blog</span><br></pre></td></tr></table></figure></p>
+</blockquote>
+<blockquote>
+<p>3.2 安装依赖文件<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">E:\blog\&gt;npm install</span><br></pre></td></tr></table></figure></p>
+</blockquote>
+<hr>
+<blockquote>
+<p>3.3 在本地开启一个服务器<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">E:\blog\&gt;hexo server</span><br></pre></td></tr></table></figure></p>
+</blockquote>
+<hr>
+<h3 id="4-给hexo安装git工具插件"><a href="#4-给hexo安装git工具插件" class="headerlink" title="4. 给hexo安装git工具插件"></a>4. 给hexo安装git工具插件</h3><blockquote>
+<p>4.1安装git工具插件<br>  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">E:\blog\&gt;npm install hexo-deployer-git --save</span><br></pre></td></tr></table></figure></p>
+</blockquote>
+<h3 id="5-配置远程仓库"><a href="#5-配置远程仓库" class="headerlink" title="5. 配置远程仓库"></a>5. 配置远程仓库</h3><blockquote>
+<p>5.1建立一个仓库xxx.github.io </p>
+</blockquote>
+<hr>
+<blockquote>
+<p>5.2 在hexo的工程中，根目录中有一个_config.yml的文件中配置如下:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">deploy:</span><br><span class="line">type: git</span><br><span class="line">repository: git@github.com:hjyl-cheng/hjyl-cheng.github.io.git</span><br><span class="line">branch: master</span><br></pre></td></tr></table></figure></p>
+</blockquote>
+<h3 id="6-使用hexo将代码提交到远程仓库"><a href="#6-使用hexo将代码提交到远程仓库" class="headerlink" title="6. 使用hexo将代码提交到远程仓库"></a>6. 使用hexo将代码提交到远程仓库</h3><blockquote>
+<p>6.1先将之前生成的public文件夹删除掉并且生成html代码并且提交到github上。 g: 生成 d:提交<br> <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">  E:\blog\&gt;hexo clean</span><br><span class="line">E:\blog\&gt;hexo d g</span><br></pre></td></tr></table></figure></p>
+</blockquote>
+<h3 id="7-打开自己的网页"><a href="#7-打开自己的网页" class="headerlink" title="7.打开自己的网页"></a>7.打开自己的网页</h3><p>进入githu-&gt;点开所创建的项目xxx.github.io-&gt;Settings—&gt;GitHub Pages-&gt;打开 <a href="https://xxx.github.io/" target="_blank" rel="noopener">https://xxx.github.io/</a></p>
+<p>2018-4-8</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/04/10/prototype/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-Object" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <hr>
+<h2 id="js的面向对象（封装、继承、多态）"><a href="#js的面向对象（封装、继承、多态）" class="headerlink" title="js的面向对象（封装、继承、多态）"></a>js的面向对象（封装、继承、多态）</h2><h3 id="面向对象"><a href="#面向对象" class="headerlink" title="面向对象"></a>面向对象</h3><p>1).对象：万物皆对象<br>2).对象包含：属性和方法 、用变量描述属性、用函数来描述方法</p>
+<h2 id="一、-js封装、继承、多态的定义"><a href="#一、-js封装、继承、多态的定义" class="headerlink" title="一、 js封装、继承、多态的定义"></a>一、 js封装、继承、多态的定义</h2><blockquote>
+<p>1.1 封装：通俗的来说。就是封装函数，通过私有化的变量和私有化的方法，不让外部访问到。</p>
+</blockquote>
+<hr>
+<blockquote>
+<p>1.2 继承：简约来说可分为两种：1).通过原型prototype对象实例化实现此类的继承。2).直接实例化对象复制，完全复制父类对象</p>
+</blockquote>
+<blockquote>
+<p>1.3 多态： 多态就是通过对传递的参数判断来执行逻辑，即可实现一种多态处理机制</p>
+</blockquote>
+<h2 id="二、构造对象的五种方法。"><a href="#二、构造对象的五种方法。" class="headerlink" title="二、构造对象的五种方法。"></a>二、构造对象的五种方法。</h2><h3 id="1-自定义对象（不适合批量创建对象）"><a href="#1-自定义对象（不适合批量创建对象）" class="headerlink" title="1.自定义对象（不适合批量创建对象）"></a>1.自定义对象（不适合批量创建对象）</h3>  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line">//创建学生对象，年龄、姓名、学号、年级属性  思考，考试方法</span><br><span class="line"></span><br><span class="line">var stu=new Object();//创建对象实例(创建学生对象)</span><br><span class="line">//添加属性</span><br><span class="line">stu.no=&apos;10001&apos;;</span><br><span class="line">stu.name=&apos;Tom&apos;;</span><br><span class="line">stu.age=20;</span><br><span class="line">stu.grade=&apos;大一&apos;;</span><br><span class="line"></span><br><span class="line">//添加方法</span><br><span class="line">stu.think=function()&#123;</span><br><span class="line">	console.log(stu.name+&apos;思考中....&apos;);</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">//添加考试方法</span><br><span class="line">stu.test=function()&#123;</span><br><span class="line">	console.log(stu.name+&apos;考试中&apos;);</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">//访问对象</span><br><span class="line">console.log(stu.no,stu.name,stu.age,stu.grade);</span><br><span class="line">//访问方法</span><br><span class="line">stu.think();</span><br><span class="line">stu.test();</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">//在创建一个学生对象</span><br><span class="line">var stu1=new Object();</span><br><span class="line">//添加属性</span><br><span class="line">stu1.name=&apos;Jack&apos;;</span><br><span class="line">stu1.age=21;</span><br><span class="line">stu1.grade=&apos;大二&apos;;</span><br><span class="line">stu1.no=&apos;2001&apos;;</span><br><span class="line">//添加方法</span><br><span class="line">stu1.think=function()&#123;</span><br><span class="line">	console.log(stu1.name+&apos;思考中....&apos;);</span><br><span class="line">&#125;;</span><br><span class="line">stu1.test=function()&#123;</span><br><span class="line">	console.log(stu1.name+&apos;考试中&apos;);</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">stu1.think();</span><br><span class="line">stu1.test();</span><br></pre></td></tr></table></figure>
+<h3 id="2-工厂模式创建关键对象"><a href="#2-工厂模式创建关键对象" class="headerlink" title="2. 工厂模式创建关键对象"></a>2. 工厂模式创建关键对象</h3><blockquote>
+<p>优点：可以快速的创建对象，避免了大量重复性代码<br>缺点：为每个对象都添加了功能，慧造成内存浪费</p>
+</blockquote>
+<pre><code><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">function createStudent(name,age)&#123;</span><br><span class="line">	var obj=new Object();</span><br><span class="line">	//添加属性</span><br><span class="line">	obj._name=name;</span><br><span class="line">	obj._age=age;</span><br><span class="line">	//添加方法</span><br><span class="line">	obj.walk=function()&#123;</span><br><span class="line">		console.log(this._name+&apos;在走路&apos;);</span><br><span class="line">	&#125;;</span><br><span class="line">	return obj;//返回对象</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">var stu1=createStudent(&apos;Jack&apos;,30);</span><br><span class="line">console.log(stu1._name,stu1._age);</span><br><span class="line">stu1.walk();//</span><br><span class="line"></span><br><span class="line">//在创建学生对象</span><br><span class="line">var stu2=createStudent(&apos;Tom&apos;,39);</span><br><span class="line">console.log(stu2._name,stu2._age);</span><br><span class="line">stu2.walk();</span><br><span class="line"></span><br><span class="line">console.log(stu1.walk==stu2.walk);//false</span><br></pre></td></tr></table></figure>
+</code></pre><h3 id="3-构造函数创建对象"><a href="#3-构造函数创建对象" class="headerlink" title="3. 构造函数创建对象"></a>3. 构造函数创建对象</h3><blockquote>
+<p>构造函数被调用的时候，系统做了两件事情：<br> 1.new Object<br> 2.将创建的对象返回<br>        缺点：为每个对象都生成了方法,内存浪费</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">function Studnet(name,age,grade)&#123;</span><br><span class="line">	this.name=name;</span><br><span class="line">	this.age=age;</span><br><span class="line">	this.grade=grade;</span><br><span class="line"></span><br><span class="line">	this.test=function()&#123;</span><br><span class="line">		console.log(this.name+&apos;is test&apos;);</span><br><span class="line">	&#125;;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">//利用构造函数造对象</span><br><span class="line">var stu1=new Studnet(&apos;Tom&apos;,25,&apos;二年级&apos;);</span><br><span class="line">console.log(stu1.name,stu1.age,stu1.grade);</span><br><span class="line">stu1.test();</span><br><span class="line"></span><br><span class="line">var stu2=new Studnet(&apos;Jack&apos;,28,&apos;三年级&apos;);</span><br><span class="line">console.log(stu2.name,stu2.age,stu2.grade);</span><br><span class="line">stu2.test();</span><br><span class="line"></span><br><span class="line">console.log(stu1.test==stu2.test);//false</span><br></pre></td></tr></table></figure>
+<hr>
+<h3 id="4-混合模式创建对象"><a href="#4-混合模式创建对象" class="headerlink" title="4. 混合模式创建对象"></a>4. 混合模式创建对象</h3><blockquote>
+<p>在构造函数中完成属性的声明，在原型中完成方法的声明</p>
+</blockquote>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">function Cat(name,age,color)&#123;</span><br><span class="line">	//添加属性</span><br><span class="line">	this.name=name;</span><br><span class="line">	this.age=age;</span><br><span class="line">	this.color=color;</span><br><span class="line">	/*function call()&#123;</span><br><span class="line">		console.log(this.name+&apos;喵喵&apos;);</span><br><span class="line">	&#125;*/					</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">//将方法添加到原型上</span><br><span class="line">Cat.prototype.call=function()&#123;</span><br><span class="line">	console.log(this.name+&apos;喵喵&apos;);</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">/*function call()&#123;</span><br><span class="line">	console.log(this.name+&apos;喵喵&apos;);</span><br><span class="line">&#125;*/		</span><br><span class="line"></span><br><span class="line">var cat1=new Cat(&apos;小花&apos;,1,&apos;花色&apos;);</span><br><span class="line">console.log(cat1.name,cat1.age,cat1.color);//访问属性</span><br><span class="line">cat1.call();</span><br><span class="line"></span><br><span class="line">var cat2=new Cat(&apos;小白&apos;,1,&apos;白色&apos;);</span><br><span class="line">console.log(cat2.name,cat2.age,cat2.color);//访问属性</span><br><span class="line">cat2.call();</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">console.log(cat1.call==cat2.call);</span><br></pre></td></tr></table></figure>
+<h3 id="5-Json格式常见对象"><a href="#5-Json格式常见对象" class="headerlink" title="5. Json格式常见对象"></a>5. Json格式常见对象</h3><blockquote>
+<p>json格式 ：键值对—&gt;{key:value}</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">var obj=&#123;&#125;;//创建一个对象  new Object();</span><br><span class="line">// console.log(typeof obj);</span><br><span class="line">//添加属性s</span><br><span class="line">obj.name=&apos;Jack&apos;;</span><br><span class="line">obj.age=20;</span><br><span class="line">obj.sex=&apos;女&apos;;</span><br><span class="line">//添加方法</span><br><span class="line">obj.walk=function()&#123;</span><br><span class="line">	console.log(this.name+&quot; is walking&quot;);</span><br><span class="line">&#125;;</span><br><span class="line">console.log(obj.name,obj.age,obj.sex);</span><br><span class="line">obj.walk();</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">//JSON格式创建对象</span><br><span class="line">var person=&#123;</span><br><span class="line">	name:&apos;Jack&apos;,</span><br><span class="line">	age:20,</span><br><span class="line">	walk:function()&#123;</span><br><span class="line">		console.log(this.name+&quot; is walking&quot;);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">console.log(person.name,person.age);</span><br><span class="line">person.walk();</span><br></pre></td></tr></table></figure>
+<p>这就是js面向对象的定义以及创建对象的五种方法，希望对你有所帮助。</p>
+<p>2018-4-11</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/04/10/Object/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-bb" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <hr>
+<h2 id="深入理解js闭包"><a href="#深入理解js闭包" class="headerlink" title="深入理解js闭包"></a>深入理解js闭包</h2><h3 id="1-闭包的含义"><a href="#1-闭包的含义" class="headerlink" title="1.闭包的含义"></a>1.闭包的含义</h3><blockquote>
+<p>1.1 闭包：有权在一个函数内部可以访问另一个函数作用域并且将此函数返回</p>
+</blockquote>
+<hr>
+<h3 id="2-想要了解闭包，首先要理解函数的作用域"><a href="#2-想要了解闭包，首先要理解函数的作用域" class="headerlink" title="2.想要了解闭包，首先要理解函数的作用域"></a>2.想要了解闭包，首先要理解函数的作用域</h3><blockquote>
+<p>2.1 js中变量的作用域分为两种，全局变量和局部变量，简单来说，除了函数中定义的变量是局部变量外，其他的都是全局变量。</p>
+</blockquote>
+<h3 id="3-闭包的作用"><a href="#3-闭包的作用" class="headerlink" title="3. 闭包的作用"></a>3. 闭包的作用</h3><blockquote>
+<p>3.1 可以在函数外面访问函数里面的变量<br>3.2 可以保存函数中的变量值，不用担心调用函数时变量变化。</p>
+</blockquote>
+<h3 id="4-什么是闭包"><a href="#4-什么是闭包" class="headerlink" title="4. 什么是闭包"></a>4. 什么是闭包</h3><blockquote>
+<p>4.1 在函数外部访问函数内的变量，由于访问不到，所以要变通来访问函数中的变量，这种方法叫做闭包。<br>  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">function a()&#123;</span><br><span class="line">	var b=6;</span><br><span class="line">	console.log(b)//6</span><br><span class="line">&#125;</span><br><span class="line">console.log(b);//error 访问不到b的值</span><br></pre></td></tr></table></figure></p>
+</blockquote>
+<blockquote>
+<p>4.2解决方法：可以函数中套用函数，将套用的函数作为返回值。由外部接收返回值，接收到的数值就是内部变量的变量值（函数中的子函数可以访问到父函数的变量值。）<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">function a()&#123;</span><br><span class="line">	var b=6;</span><br><span class="line">	console.log(b)//6</span><br><span class="line">	function c()&#123;</span><br><span class="line">		console.log(b)//6</span><br><span class="line">	&#125;;</span><br><span class="line">	c();</span><br><span class="line">	return function c()&#123;</span><br><span class="line">		return b;</span><br><span class="line">	&#125;;</span><br><span class="line">&#125;</span><br><span class="line">var e=a();</span><br><span class="line">console.log(e());//6</span><br></pre></td></tr></table></figure></p>
+</blockquote>
+<h3 id="5-要注意"><a href="#5-要注意" class="headerlink" title="5. 要注意"></a>5. 要注意</h3><blockquote>
+<p>5.1由于闭包会使得函数中的变量被保存到内存中，这样很消耗内存，所以一定要注意不能随便用闭包。但是可以在退出函数之前，释放不使的局部变量，以清理内存，保证浏览器性能。</p>
+</blockquote>
+<hr>
+<p>2018-4-10</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/04/10/bb/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-hello-world" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -193,7 +428,7 @@
 <p>6.1先将之前生成的public文件夹删除掉并且生成html代码并且提交到github上。 g: 生成 d:提交<br> <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">  E:\blog\&gt;hexo clean</span><br><span class="line">E:\blog\&gt;hexo d g</span><br></pre></td></tr></table></figure></p>
 </blockquote>
 <h3 id="7-打开自己的网页"><a href="#7-打开自己的网页" class="headerlink" title="7.打开自己的网页"></a>7.打开自己的网页</h3><p>进入githu-&gt;点开所创建的项目xxx.github.io-&gt;Settings—&gt;GitHub Pages-&gt;打开 <a href="https://xxx.github.io/" target="_blank" rel="noopener">https://xxx.github.io/</a></p>
-<p>完成<br>张莉莉，爱你哦！</p>
+<p>2018-4-8</p>
 
       
 
