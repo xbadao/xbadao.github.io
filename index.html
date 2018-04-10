@@ -152,20 +152,276 @@
           <div id="js-content" class="content-ll">
             
   
-    <article id="post-js的面向对象" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-vue2.0基础—构架" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2018/06/05/js的面向对象/">js的面向对象（封装、继承、多态）</a>
+      <a class="article-title" href="/2018/04/10/vue2.0基础—构架/">Vue2.0基础-vue-cli搭建项目</a>
     </h1>
   
 
         
-        <a href="/2018/06/05/js的面向对象/" class="archive-article-date">
-  	<time datetime="2018-06-05T12:45:27.191Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-06-05</time>
+        <a href="/2018/04/10/vue2.0基础—构架/" class="archive-article-date">
+  	<time datetime="2018-04-10T09:31:17.028Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-04-10</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="一、什么是webpack？"><a href="#一、什么是webpack？" class="headerlink" title="一、什么是webpack？"></a>一、什么是webpack？</h1><p>webpack是一个module bundler（模块打包工具），其可以兼容各种js书写规范，且可以处理模块间的依赖关系，具有更强大的js模块化的功能。Webpack对它们进行统一的管理以及打包发布，其官方主页用下面这张图来说明Webbpack的作用。</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/5877364-40e456a61a5eb489.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="what-is-webpack.png"></p>
+<p>在讲课的时候讲解过webpack，并且从零开始使用了webpack搭建了一个工作流，在这里就不啰嗦讲解了。<br>
+        
+          <a class="article-more-a" href="/2018/04/10/vue2.0基础—构架/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/04/10/vue2.0基础—构架/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-vue2.0生命周期" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/03/05/vue2.0生命周期/">vue2.0生命周期（二）</a>
+    </h1>
+  
+
+        
+        <a href="/2018/03/05/vue2.0生命周期/" class="archive-article-date">
+  	<time datetime="2018-03-05T10:30:20.621Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-03-05</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="一、Vue对象实例化"><a href="#一、Vue对象实例化" class="headerlink" title="一、Vue对象实例化"></a>一、Vue对象实例化</h3><figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">JS</span>代码:</span><br><span class="line"></span><br><span class="line"><span class="selector-tag">new</span> <span class="selector-tag">Vue</span>(&#123;</span><br><span class="line">  <span class="comment">/* DOM挂载点 */</span></span><br><span class="line">  <span class="attribute">el</span>: <span class="string">'#app'</span>,</span><br><span class="line">  <span class="comment">/* 使用哪个模板 */</span></span><br><span class="line">  <span class="attribute">template</span>: <span class="string">'&lt;div&gt;&#123;&#123;fruit&#125;&#125;&lt;/div&gt;'</span>,</span><br><span class="line">  <span class="comment">/* 给模板传递的数据 */</span></span><br><span class="line">  <span class="attribute">data</span>: &#123;</span><br><span class="line">    <span class="attribute">fruit</span>: <span class="string">'apple'</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<p>其中<strong><em>Vue</em></strong>函数称为构造函数，使用<strong><em>new</em></strong>就可以实例化出来一个实例化对象。</p>
+        
+          <a class="article-more-a" href="/2018/03/05/vue2.0生命周期/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/03/05/vue2.0生命周期/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-scopeChain1" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/12/21/scopeChain1/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-scopeChain" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/12/19/scopeChain/">JavaScript作用域的理解</a>
+    </h1>
+  
+
+        
+        <a href="/2017/12/19/scopeChain/" class="archive-article-date">
+  	<time datetime="2017-12-19T12:26:42.711Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-12-19</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p> 一、作用域的分类</p>
+<blockquote>
+<p>变量的作用域无非为两种：全局变量和局部变量</p>
+</blockquote>
+<p>二、全局变量（作用于全局）</p>
+<blockquote>
+<ol>
+<li>全局变量就是在函数外部声明的变量，即隶属于window的变量，对于任何函数来说都可以访问<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">demo</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    num = <span class="string">"helloWorld"</span>;</span><br><span class="line"> &#125;</span><br><span class="line"> demo();</span><br><span class="line"> <span class="built_in">console</span>.log(num);<span class="comment">// result:  helloWorld</span></span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+</blockquote>
+<p> <strong><em>注：函数内部变量未使用var，则都默认为全局变量</em></strong></p>
+        
+          <a class="article-more-a" href="/2017/12/19/scopeChain/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/12/19/scopeChain/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-js面向对象" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/11/04/js面向对象/">js的面向对象（封装、继承、多态）</a>
+    </h1>
+  
+
+        
+        <a href="/2017/11/04/js面向对象/" class="archive-article-date">
+  	<time datetime="2017-11-04T12:26:04.919Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-11-04</time>
 </a>
         
       </header>
@@ -181,7 +437,7 @@
 <p>1.2 继承：简约来说可分为两种：1).通过原型prototype对象实例化实现此类的继承。2).直接实例化对象复制，完全复制父类对象</p>
 </blockquote>
         
-          <a class="article-more-a" href="/2018/06/05/js的面向对象/#more">more >></a>
+          <a class="article-more-a" href="/2017/11/04/js面向对象/#more">more >></a>
         
       
 
@@ -194,7 +450,367 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2018/06/05/js的面向对象/">展开全文 >></a>
+          <a class="article-more-a" href="/2017/11/04/js面向对象/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-buildBlog" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/10/10/buildBlog/">从零开始搭建博客</a>
+    </h1>
+  
+
+        
+        <a href="/2017/10/10/buildBlog/" class="archive-article-date">
+  	<time datetime="2017-10-10T08:24:26.772Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-10-10</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p> 一、环境的搭建</p>
+<blockquote>
+<ol>
+<li>下载安装 nodejs(<a href="https://npm.taobao.org/mirrors/node/v8.9.3/node-v8.9.3-x64.msi" target="_blank" rel="noopener">https://npm.taobao.org/mirrors/node/v8.9.3/node-v8.9.3-x64.msi</a>)</li>
+<li>检测node、npm管理工具是否安装成功 (命令行里输入 node -v、npm -v) </li>
+</ol>
+</blockquote>
+<p>二、安装管理工具</p>
+<blockquote>
+<ol>
+<li>命令行输入 <figure class="highlight gams"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm config <span class="keyword">set</span> registry <span class="comment">https:</span>//<span class="comment">registry.npm.taobao.org</span></span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+</blockquote>
+<p>   <strong><em>注：由于原始链接下载过慢，切换成淘宝镜像源</em></strong></p>
+<blockquote>
+<ol start="2">
+<li>换源后输入  <figure class="highlight avrasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install -g hexo-<span class="keyword">cli</span></span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+</blockquote>
+        
+          <a class="article-more-a" href="/2017/10/10/buildBlog/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/10/10/buildBlog/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-ES6" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/10/10/ES6/">【ES6系列】变量与块级作用域</a>
+    </h1>
+  
+
+        
+        <a href="/2017/10/10/ES6/" class="archive-article-date">
+  	<time datetime="2017-10-10T08:22:49.429Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-10-10</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <blockquote>
+<p>ECMAScript 6.0（以下简称 ES6）是 JavaScript 语言的下一代标准，已经在 2015 年 6 月正式发布了。它的目标，是使得 JavaScript 语言可以用来编写复杂的大型应用程序，成为企业级开发语言。</p>
+</blockquote>
+<p>ES6的出现已经很久了，由于之前的项目只是基于ES5以及之前的版本内容进行开发的，所以没有系统性的梳理学习ES6的相关知识。感觉自己已经被发展的车轮落下了好远好远(@﹏@)~，所以在接下来这段时间针对性的进行学习整理，希望能够让自己有所提高，也希望能帮助和我一样的人……</p>
+<h3 id="变量"><a href="#变量" class="headerlink" title="变量"></a>变量</h3><h4 id="常量-const-命令"><a href="#常量-const-命令" class="headerlink" title="常量 const 命令"></a>常量 const 命令</h4><h5 id="常量的定义"><a href="#常量的定义" class="headerlink" title="常量的定义"></a>常量的定义</h5>
+        
+          <a class="article-more-a" href="/2017/10/10/ES6/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/10/10/ES6/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-小数问题" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/08/14/小数问题/">如何解决0.1 +0.2===0.30000000000000004类问题</a>
+    </h1>
+  
+
+        
+        <a href="/2017/08/14/小数问题/" class="archive-article-date">
+  	<time datetime="2017-08-14T09:22:05.956Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-08-14</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <blockquote>
+<p>这篇博客将主要提供几种解决小数精度丢失问题的Javascript类库的代码示例，以及简单的原生EcmaScript方法的代码示例。</p>
+</blockquote>
+<h3 id="一-类库部分"><a href="#一-类库部分" class="headerlink" title="一.类库部分"></a>一.类库部分</h3><h4 id="math-js"><a href="#math-js" class="headerlink" title="math.js"></a>math.js</h4><p>math.js是JavaScript和Node.js的一个广泛的数学库。支持数字，大数，复数，分数，单位和矩阵等数据类型的运算。</p>
+        
+          <a class="article-more-a" href="/2017/08/14/小数问题/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/08/14/小数问题/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-vue实践" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/07/22/vue实践/">Vue 的实践</a>
+    </h1>
+  
+
+        
+        <a href="/2017/07/22/vue实践/" class="archive-article-date">
+  	<time datetime="2017-07-22T06:20:45.841Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-07-22</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <blockquote>
+<p>记录我在使用 Vue 中发现的一些好的代码实践，希望能够保持更新。</p>
+</blockquote>
+<h3 id="this-引用"><a href="#this-引用" class="headerlink" title="this 引用"></a>this 引用</h3><p>在组件作用域内使用箭头函数可以保证 this 永远指向组件本身。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// bad</span></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> &#123;</span><br><span class="line">    data() &#123;</span><br><span class="line">        <span class="keyword">return</span> &#123;</span><br><span class="line">            msg: <span class="string">'hello'</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;,</span><br><span class="line">    methods: &#123;</span><br><span class="line">        hello() &#123;</span><br><span class="line">            setTimeout(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">                <span class="built_in">console</span>.log(<span class="keyword">this</span>.msg) <span class="comment">// this 指向 window</span></span><br><span class="line">            &#125;)</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+        
+          <a class="article-more-a" href="/2017/07/22/vue实践/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/07/22/vue实践/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-web前端-Angular4环境搭建" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/06/14/web前端-Angular4环境搭建/">使用Angular-cli快速搭建项目</a>
+    </h1>
+  
+
+        
+        <a href="/2017/06/14/web前端-Angular4环境搭建/" class="archive-article-date">
+  	<time datetime="2017-06-14T03:11:41.584Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-06-14</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="一、安装开发环境"><a href="#一、安装开发环境" class="headerlink" title="一、安装开发环境"></a>一、安装开发环境</h2><p>这个开发环境也是现在最基础的前端开发环境，就是首先要安装Nodejs和npm。这个安装在此省略，因为只需要下载Nodejs安装包，直接安装就行了。</p>
+<h3 id="1-1测试安装环境"><a href="#1-1测试安装环境" class="headerlink" title="1.1测试安装环境"></a>1.1测试安装环境</h3><pre><code>node -v
+</code></pre><p>如果Node.js的版本大于等于<strong><em>6.9.x</em></strong>即可。</p>
+<pre><code>npm -v
+</code></pre><p>如果npm的版本大于等于3.x.x即可。</p>
+        
+          <a class="article-more-a" href="/2017/06/14/web前端-Angular4环境搭建/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/06/14/web前端-Angular4环境搭建/">展开全文 >></a>
         </p>
       
 
@@ -234,7 +850,7 @@
   <div class="outer">
     <div id="footer-info">
     	<div class="footer-left">
-    		&copy; 2017 何晨苑的博客
+    		&copy; 2018 何晨苑的博客
     	</div>
       	<div class="footer-right">
       		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
