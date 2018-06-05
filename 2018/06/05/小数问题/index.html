@@ -6,15 +6,22 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="//xbadao">
-  <title>Archives | 何晨苑</title>
+  <title>如何解决0.1 +0.2===0.30000000000000004类问题 | 何晨苑</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="何晨苑">
-<meta property="og:url" content="//xbadao/archives/index.html">
+  <meta name="description" content="这篇博客将主要提供几种解决小数精度丢失问题的Javascript类库的代码示例，以及简单的原生EcmaScript方法的代码示例。  一.类库部分math.jsmath.js是JavaScript和Node.js的一个广泛的数学库。支持数字，大数，复数，分数，单位和矩阵等数据类型的运算。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="如何解决0.1 +0.2===0.30000000000000004类问题">
+<meta property="og:url" content="//xbadao/2018/06/05/小数问题/index.html">
 <meta property="og:site_name" content="何晨苑">
+<meta property="og:description" content="这篇博客将主要提供几种解决小数精度丢失问题的Javascript类库的代码示例，以及简单的原生EcmaScript方法的代码示例。  一.类库部分math.jsmath.js是JavaScript和Node.js的一个广泛的数学库。支持数字，大数，复数，分数，单位和矩阵等数据类型的运算。">
 <meta property="og:locale" content="default">
+<meta property="og:image" content="//xbadao/img/1.png">
+<meta property="og:image" content="//xbadao/img/2.png">
+<meta property="og:updated_time" content="2018-06-05T12:40:13.546Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="何晨苑">
+<meta name="twitter:title" content="如何解决0.1 +0.2===0.30000000000000004类问题">
+<meta name="twitter:description" content="这篇博客将主要提供几种解决小数精度丢失问题的Javascript类库的代码示例，以及简单的原生EcmaScript方法的代码示例。  一.类库部分math.jsmath.js是JavaScript和Node.js的一个广泛的数学库。支持数字，大数，复数，分数，单位和矩阵等数据类型的运算。">
+<meta name="twitter:image" content="//xbadao/img/1.png">
   
     <link rel="alternative" href="/atom.xml" title="何晨苑" type="application/atom+xml">
   
@@ -150,292 +157,201 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
+            <article id="post-小数问题" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
   
+    <h1 class="article-title" itemprop="name">
+      如何解决0.1 +0.2===0.30000000000000004类问题
+    </h1>
   
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2018" class="archive-year">2018</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/06/05/web前端-Angular4环境搭建/" class="archive-article-date">
+
+        
+        <a href="/2018/06/05/小数问题/" class="archive-article-date">
   	<time datetime="2018-06-05T12:45:27.195Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-06-05</time>
 </a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/06/05/web前端-Angular4环境搭建/">使用Angular-cli快速搭建项目</a>
-    </h1>
-  
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <blockquote>
+<p>这篇博客将主要提供几种解决小数精度丢失问题的Javascript类库的代码示例，以及简单的原生EcmaScript方法的代码示例。</p>
+</blockquote>
+<h3 id="一-类库部分"><a href="#一-类库部分" class="headerlink" title="一.类库部分"></a>一.类库部分</h3><h4 id="math-js"><a href="#math-js" class="headerlink" title="math.js"></a>math.js</h4><p>math.js是JavaScript和Node.js的一个广泛的数学库。支持数字，大数，复数，分数，单位和矩阵等数据类型的运算。</p>
+<a id="more"></a>
+<p>官网：<a href="http://mathjs.org/" target="_blank" rel="noopener">http://mathjs.org/</a><br>GitHub：<a href="https://github.com/josdejong/mathjs" target="_blank" rel="noopener">https://github.com/josdejong/mathjs</a></p>
+<p>0.1+0.2 ===0.3实现代码：<br><figure class="highlight lua"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">var <span class="built_in">math</span> = <span class="built_in">require</span>(<span class="string">'mathjs'</span>)</span><br><span class="line">console.<span class="built_in">log</span>(<span class="built_in">math</span>.add(<span class="number">0.1</span>,<span class="number">0.2</span>))//<span class="number">0.30000000000000004</span></span><br><span class="line">console.<span class="built_in">log</span>(<span class="built_in">math</span>.<span class="built_in">format</span>((<span class="built_in">math</span>.add(<span class="built_in">math</span>.bignumber(<span class="number">0.1</span>),<span class="built_in">math</span>.bignumber(<span class="number">0.2</span>)))))//<span class="string">'0.3'</span></span><br></pre></td></tr></table></figure></p>
+<h4 id="decimal-js"><a href="#decimal-js" class="headerlink" title="decimal.js"></a>decimal.js</h4><p>为 JavaScript 提供十进制类型的任意精度数值。</p>
+<p>官网：<a href="http://mikemcl.github.io/decimal.js/" target="_blank" rel="noopener">http://mikemcl.github.io/decimal.js/</a></p>
+<p>GitHub：<a href="https://github.com/MikeMcl/decimal.js" target="_blank" rel="noopener">https://github.com/MikeMcl/decimal.js</a><br><figure class="highlight lasso"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">var</span> <span class="built_in">Decimal</span> = <span class="keyword">require</span>(<span class="string">'decimal.js'</span>)</span><br><span class="line">x = <span class="literal">new</span>  <span class="built_in">Decimal</span>(<span class="number">0.1</span>)</span><br><span class="line">y = <span class="number">0.2</span></span><br><span class="line">console.<span class="keyword">log</span>(x.plus(y).toString())<span class="comment">//'0.3'</span></span><br></pre></td></tr></table></figure></p>
+<h4 id="bignumber-js"><a href="#bignumber-js" class="headerlink" title="bignumber.js"></a>bignumber.js</h4><p>用于任意精度算术的JavaScript库。</p>
+<p>官网：<a href="http://mikemcl.github.io/bignumber.js/" target="_blank" rel="noopener">http://mikemcl.github.io/bignumber.js/</a></p>
+<p>Github：<a href="https://github.com/MikeMcl/bignumber.js" target="_blank" rel="noopener">https://github.com/MikeMcl/bignumber.js</a></p>
+<figure class="highlight pony"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> <span class="type">BigNumber</span> = require(<span class="string">"bignumber.js"</span>)</span><br><span class="line">x = <span class="function"><span class="keyword">new</span> <span class="title">BigNumber</span>(<span class="number">0.1</span>)</span></span><br><span class="line"><span class="function"><span class="title">y</span> = 0.2</span></span><br><span class="line"><span class="function"><span class="title">console</span>.<span class="title">log</span>(x.plus(y).<span class="title">toString</span>())<span class="comment">//'0.3'</span></span></span><br></pre></td></tr></table></figure>
+<h4 id="big-js"><a href="#big-js" class="headerlink" title="big.js"></a>big.js</h4><p>用于任意精度十进制算术的小型快速JavaScript库。</p>
+<p>官网：<a href="http://mikemcl.github.io/big.js/" target="_blank" rel="noopener">http://mikemcl.github.io/big.js/</a></p>
+<p>Github：<a href="https://github.com/MikeMcl/big.js/" target="_blank" rel="noopener">https://github.com/MikeMcl/big.js/</a></p>
+<figure class="highlight pony"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> <span class="type">Big</span> = require(<span class="string">"big.js"</span>)</span><br><span class="line">x = <span class="function"><span class="keyword">new</span> <span class="title">Big</span>(<span class="number">0.1</span>)</span></span><br><span class="line"><span class="function"><span class="title">y</span> = 0.2</span></span><br><span class="line"><span class="function"><span class="title">console</span>.<span class="title">log</span>(x.plus(y).<span class="title">toString</span>())<span class="comment">//'0.3'</span></span></span><br></pre></td></tr></table></figure>
+<p>有一个需要注意的点，使用类库此时输出的0.3是String类型，因此若想保持为Number类型，可使用parseFloat()方法。</p>
+<p>还有一个注意点，在本地install测试的时候，npm i mathjs -g ，require是也要require(‘mathjs’)，而不是带点的math.js，因为josdejong这哥们在创建项目的时候就命名为mathjs，而同时拥有上述decimal.js， bignumber.js和big.js的MikeMcl，项目名字就带了dot，因此安装和引入时，都是xxx.js的形式。</p>
+<p>如何在这三个类库之间做选择，还需要大家自己根据具体情况具体分析，我在这里就不赘述了。</p>
+<p>最后，教大家一个线上直接测试的网站，<a href="https://npm.runkit.com，子路径输入想要测试的Node.js" target="_blank" rel="noopener">https://npm.runkit.com，子路径输入想要测试的Node.js</a> package名，就可以实现在线测试包中的api了。<br>例如：<br>math.js：<a href="https://npm.runkit.com/mathjs" target="_blank" rel="noopener">https://npm.runkit.com/mathjs</a><br>big.js：<a href="https://npm.runkit.com/big.js" target="_blank" rel="noopener">https://npm.runkit.com/big.js</a></p>
+<h3 id="二-原生方法"><a href="#二-原生方法" class="headerlink" title="二.原生方法"></a>二.原生方法</h3><p>类库其实很强大，我们计算0.1+0.2其实只是用到了冰山一角，那么我们如何使用原生的EcmaScript代码来应用于简单的问题场景呢？</p>
+<p>这就要用到Number.prototype.toFixed()这个方法了。</p>
+<p>浮点数运算</p>
+<p>toFixed() 方法</p>
+<p>浮点数运算的解决方案有很多，这里给出一种目前常用的解决方案, 在判断浮点数运算结果前对计算结果进行精度缩小，因为在精度缩小的过程总会自动四舍五入。</p>
+<p>toFixed() 方法使用定点表示法来格式化一个数，会对结果进行四舍五入。语法为：</p>
+<p>JavaScript 代码:<br>numObj.toFixed(digits)<br>参数 digits 表示小数点后数字的个数；介于 0 到 20 （包括）之间，实现环境可能支持更大范围。如果忽略该参数，则默认为 0。</p>
+<p>返回一个数值的字符串表现形式，不使用指数记数法，而是在小数点后有 digits 位数字。该数值在必要时进行四舍五入，另外在必要时会用 0 来填充小数部分，以便小数部分有指定的位数。 如果数值大于 1e+21，该方法会简单调用 Number.prototype.toString()并返回一个指数记数法格式的字符串。</p>
+<p>特别注意：toFixed() 返回一个数值的字符串表现形式。</p>
+<p>具体可以查看 MDN中的说明，那么我们可以这样解决精度问题：</p>
+<p>JavaScript 代码:<br><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="title">parseFloat</span><span class="params">((数学表达式)</span></span>.toFixed(digits))； <span class="comment">// toFixed() 精度参数须在 0 与20 之间</span></span><br><span class="line"><span class="comment">// 运行</span></span><br><span class="line"><span class="function"><span class="title">parseFloat</span><span class="params">((<span class="number">0.1</span> + <span class="number">0.2</span>)</span></span>.toFixed(<span class="number">10</span>))<span class="comment">//结果为0.3</span></span><br><span class="line"><span class="function"><span class="title">parseFloat</span><span class="params">((<span class="number">0.3</span> / <span class="number">0.1</span>)</span></span>.toFixed(<span class="number">10</span>)) <span class="comment">// 结果为 3  </span></span><br><span class="line"><span class="function"><span class="title">parseFloat</span><span class="params">((<span class="number">0.7</span> * <span class="number">180</span>)</span></span>.toFixed(<span class="number">10</span>))<span class="comment">//结果为126</span></span><br><span class="line"><span class="function"><span class="title">parseFloat</span><span class="params">((<span class="number">1.0</span> - <span class="number">0.9</span>)</span></span>.toFixed(<span class="number">10</span>)) <span class="comment">// 结果为 0.1   </span></span><br><span class="line"><span class="function"><span class="title">parseFloat</span><span class="params">((<span class="number">9.7</span> * <span class="number">100</span>)</span></span>.toFixed(<span class="number">10</span>)) <span class="comment">// 结果为 970 </span></span><br><span class="line"><span class="function"><span class="title">parseFloat</span><span class="params">((<span class="number">2.22</span> + <span class="number">0.1</span>)</span></span>.toFixed(<span class="number">10</span>)) <span class="comment">// 结果为 2.32</span></span><br></pre></td></tr></table></figure></p>
+<p>在Browser环境精度参数允许0~100位之间（包括100），测试版本为Chrome62(64位)和Firefox56 (32 位)。<br>在Nodejs环境中，只能是0~20之间，测试版本为v6.9.5。</p>
+<p>其次就是toFixed()的浏览器兼容性讨论，MDN给出的结果全部是YES，无论desktop端还是mobile端，也就是说不用担心toFixed()的兼容性问题（ie8- 我们不做讨论）。</p>
+<p>desktop端：<br><img src="/img/1.png" alt="desktop端"></p>
+<p>mobile端：<br><img src="/img/2.png" alt="mobile端"><br>Thanks:<br><a href="http://www.css88.com/archives.." target="_blank" rel="noopener">http://www.css88.com/archives..</a>.<br><a href="https://developer.mozilla.org.." target="_blank" rel="noopener">https://developer.mozilla.org..</a>.</p>
 
-        <div class="article-info info-on-right">
-          
-          
+      
 
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
+        </div>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://xbadao/2018/06/05/小数问题/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/06/05/小数问题/" class="archive-article-date">
-  	<time datetime="2018-06-05T12:45:27.195Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-06-05</time>
-</a>
+<nav id="article-nav">
+  
+    <a href="/2018/06/05/web前端-Angular4环境搭建/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          使用Angular-cli快速搭建项目
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2018/06/05/vue实践/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Vue 的实践</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
+        
+        
+    </div>
+</aside>
+
+
+
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/06/05/小数问题/">如何解决0.1 +0.2===0.30000000000000004类问题</a>
-    </h1>
+  
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/06/05/vue实践/" class="archive-article-date">
-  	<time datetime="2018-06-05T12:45:27.194Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-06-05</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/06/05/vue实践/">Vue 的实践</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/06/05/Vue2.0基础-vue-cli搭建项目/" class="archive-article-date">
-  	<time datetime="2018-06-05T12:45:27.193Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-06-05</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/06/05/Vue2.0基础-vue-cli搭建项目/">Vue2.0基础-vue-cli搭建项目</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/06/05/vue2.0生命周期（二）/" class="archive-article-date">
-  	<time datetime="2018-06-05T12:45:27.193Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-06-05</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/06/05/vue2.0生命周期（二）/">vue2.0生命周期（二）</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/06/05/scopeChain1/" class="archive-article-date">
-  	<time datetime="2018-06-05T12:45:27.192Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-06-05</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/06/05/scopeChain1/">作用域链和闭包的理解</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/06/05/js的面向对象/" class="archive-article-date">
-  	<time datetime="2018-06-05T12:45:27.191Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-06-05</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/06/05/js的面向对象/">js的面向对象（封装、继承、多态）</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/06/05/scopeChain/" class="archive-article-date">
-  	<time datetime="2018-06-05T12:45:27.191Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-06-05</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/06/05/scopeChain/">JavaScript作用域的理解</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/06/05/ES6/" class="archive-article-date">
-  	<time datetime="2018-06-05T12:45:27.190Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-06-05</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/06/05/ES6/">【ES6系列】变量与块级作用域</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/06/05/bulidBlog/" class="archive-article-date">
-  	<time datetime="2018-06-05T12:45:27.189Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-06-05</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/06/05/bulidBlog/">从零开始搭建博客</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
-    
 
 
           </div>
@@ -458,8 +374,8 @@
 	var yiliaConfig = {
 		mathjax: true,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: true,

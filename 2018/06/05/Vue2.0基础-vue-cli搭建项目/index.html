@@ -6,19 +6,22 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="//xbadao">
-  <title>何晨苑</title>
+  <title>Vue2.0基础-vue-cli搭建项目 | 何晨苑</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="title:深入理解js闭包1.闭包的含义 1.1 闭包：有权在一个函数内部可以访问另一个函数作用域并且将此函数返回   2.想要了解闭包，首先要理解函数的作用域 2.1 js中变量的作用域分为两种，全局变量和局部变量，简单来说，除了函数中定义的变量是局部变量外，其他的都是全局变量。  3. 闭包的作用 3.1 可以在函数外面访问函数里面的变量3.2 可以保存函数中的变量值，不用担心调用函数时变">
+  <meta name="description" content="一、什么是webpack？webpack是一个module bundler（模块打包工具），其可以兼容各种js书写规范，且可以处理模块间的依赖关系，具有更强大的js模块化的功能。Webpack对它们进行统一的管理以及打包发布，其官方主页用下面这张图来说明Webbpack的作用。  在讲课的时候讲解过webpack，并且从零开始使用了webpack搭建了一个工作流，在这里就不啰嗦讲解了。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="何晨苑">
-<meta property="og:url" content="//xbadao/2018/04/10/bb/index.html">
+<meta property="og:title" content="Vue2.0基础-vue-cli搭建项目">
+<meta property="og:url" content="//xbadao/2018/06/05/Vue2.0基础-vue-cli搭建项目/index.html">
 <meta property="og:site_name" content="何晨苑">
-<meta property="og:description" content="title:深入理解js闭包1.闭包的含义 1.1 闭包：有权在一个函数内部可以访问另一个函数作用域并且将此函数返回   2.想要了解闭包，首先要理解函数的作用域 2.1 js中变量的作用域分为两种，全局变量和局部变量，简单来说，除了函数中定义的变量是局部变量外，其他的都是全局变量。  3. 闭包的作用 3.1 可以在函数外面访问函数里面的变量3.2 可以保存函数中的变量值，不用担心调用函数时变">
+<meta property="og:description" content="一、什么是webpack？webpack是一个module bundler（模块打包工具），其可以兼容各种js书写规范，且可以处理模块间的依赖关系，具有更强大的js模块化的功能。Webpack对它们进行统一的管理以及打包发布，其官方主页用下面这张图来说明Webbpack的作用。  在讲课的时候讲解过webpack，并且从零开始使用了webpack搭建了一个工作流，在这里就不啰嗦讲解了。">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-06-05T12:26:55.500Z">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/5877364-40e456a61a5eb489.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/5877364-66da45407ca3ce0d.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:updated_time" content="2018-06-05T12:40:13.543Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="何晨苑">
-<meta name="twitter:description" content="title:深入理解js闭包1.闭包的含义 1.1 闭包：有权在一个函数内部可以访问另一个函数作用域并且将此函数返回   2.想要了解闭包，首先要理解函数的作用域 2.1 js中变量的作用域分为两种，全局变量和局部变量，简单来说，除了函数中定义的变量是局部变量外，其他的都是全局变量。  3. 闭包的作用 3.1 可以在函数外面访问函数里面的变量3.2 可以保存函数中的变量值，不用担心调用函数时变">
+<meta name="twitter:title" content="Vue2.0基础-vue-cli搭建项目">
+<meta name="twitter:description" content="一、什么是webpack？webpack是一个module bundler（模块打包工具），其可以兼容各种js书写规范，且可以处理模块间的依赖关系，具有更强大的js模块化的功能。Webpack对它们进行统一的管理以及打包发布，其官方主页用下面这张图来说明Webbpack的作用。  在讲课的时候讲解过webpack，并且从零开始使用了webpack搭建了一个工作流，在这里就不啰嗦讲解了。">
+<meta name="twitter:image" content="http://upload-images.jianshu.io/upload_images/5877364-40e456a61a5eb489.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
   
     <link rel="alternative" href="/atom.xml" title="何晨苑" type="application/atom+xml">
   
@@ -154,33 +157,42 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-bb" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-Vue2.0基础-vue-cli搭建项目" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Vue2.0基础-vue-cli搭建项目
+    </h1>
+  
+
+        
+        <a href="/2018/06/05/Vue2.0基础-vue-cli搭建项目/" class="archive-article-date">
+  	<time datetime="2018-06-05T12:45:27.193Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-06-05</time>
+</a>
+        
+      </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <hr>
-<h2 id="title-深入理解js闭包"><a href="#title-深入理解js闭包" class="headerlink" title="title:深入理解js闭包"></a>title:深入理解js闭包</h2><h3 id="1-闭包的含义"><a href="#1-闭包的含义" class="headerlink" title="1.闭包的含义"></a>1.闭包的含义</h3><blockquote>
-<p>1.1 闭包：有权在一个函数内部可以访问另一个函数作用域并且将此函数返回</p>
-</blockquote>
-<hr>
-<h3 id="2-想要了解闭包，首先要理解函数的作用域"><a href="#2-想要了解闭包，首先要理解函数的作用域" class="headerlink" title="2.想要了解闭包，首先要理解函数的作用域"></a>2.想要了解闭包，首先要理解函数的作用域</h3><blockquote>
-<p>2.1 js中变量的作用域分为两种，全局变量和局部变量，简单来说，除了函数中定义的变量是局部变量外，其他的都是全局变量。</p>
-</blockquote>
-<h3 id="3-闭包的作用"><a href="#3-闭包的作用" class="headerlink" title="3. 闭包的作用"></a>3. 闭包的作用</h3><blockquote>
-<p>3.1 可以在函数外面访问函数里面的变量<br>3.2 可以保存函数中的变量值，不用担心调用函数时变量变化。</p>
-</blockquote>
-<h3 id="4-什么是闭包"><a href="#4-什么是闭包" class="headerlink" title="4. 什么是闭包"></a>4. 什么是闭包</h3><blockquote>
-<p>4.1 在函数外部访问函数内的变量，由于访问不到，所以要变通来访问函数中的变量，这种方法叫做闭包。<br>  <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">a</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">	<span class="keyword">var</span> b=<span class="number">6</span>;</span><br><span class="line">	<span class="built_in">console</span>.log(b)<span class="comment">//6</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(b);<span class="comment">//error 访问不到b的值</span></span><br></pre></td></tr></table></figure></p>
-</blockquote>
-<blockquote>
-<p>4.2解决方法：可以函数中套用函数，将套用的函数作为返回值。由外部接收返回值，接收到的数值就是内部变量的变量值（函数中的子函数可以访问到父函数的变量值。）<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">a</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">	<span class="keyword">var</span> b=<span class="number">6</span>;</span><br><span class="line">	<span class="built_in">console</span>.log(b)<span class="comment">//6</span></span><br><span class="line">	<span class="function"><span class="keyword">function</span> <span class="title">c</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">		<span class="built_in">console</span>.log(b)<span class="comment">//6</span></span><br><span class="line">	&#125;;</span><br><span class="line">	c();</span><br><span class="line">	<span class="keyword">return</span> <span class="function"><span class="keyword">function</span> <span class="title">c</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">		<span class="keyword">return</span> b;</span><br><span class="line">	&#125;;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> e=a();</span><br><span class="line"><span class="built_in">console</span>.log(e());<span class="comment">//6</span></span><br></pre></td></tr></table></figure></p>
-</blockquote>
-<h3 id="5-要注意"><a href="#5-要注意" class="headerlink" title="5. 要注意"></a>5. 要注意</h3><blockquote>
-<p>5.1由于闭包会使得函数中的变量被保存到内存中，这样很消耗内存，所以一定要注意不能随便用闭包。但是可以在退出函数之前，释放不使的局部变量，以清理内存，保证浏览器性能。</p>
-</blockquote>
-<hr>
-<p>2018-4-10</p>
+        <h1 id="一、什么是webpack？"><a href="#一、什么是webpack？" class="headerlink" title="一、什么是webpack？"></a>一、什么是webpack？</h1><p>webpack是一个module bundler（模块打包工具），其可以兼容各种js书写规范，且可以处理模块间的依赖关系，具有更强大的js模块化的功能。Webpack对它们进行统一的管理以及打包发布，其官方主页用下面这张图来说明Webbpack的作用。</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/5877364-40e456a61a5eb489.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="what-is-webpack.png"></p>
+<p>在讲课的时候讲解过webpack，并且从零开始使用了webpack搭建了一个工作流，在这里就不啰嗦讲解了。<br><a id="more"></a></p>
+<h1 id="二、使用vue-cli搭建开发环境"><a href="#二、使用vue-cli搭建开发环境" class="headerlink" title="二、使用vue-cli搭建开发环境"></a>二、使用vue-cli搭建开发环境</h1><p>在使用Vue-cli之前，需要安装Nodejs环境和Vue-cli工具。</p>
+<h3 id="2-1安装Nodejs"><a href="#2-1安装Nodejs" class="headerlink" title="2.1安装Nodejs"></a>2.1安装Nodejs</h3><p>在<a href="www.nodejs.org">www.nodejs.org</a>网站下载相应的Nodejs版本，或者使用<strong>NVM</strong>来管理Nodejs。</p>
+<h3 id="2-2在全局安装Vue-cli"><a href="#2-2在全局安装Vue-cli" class="headerlink" title="2.2在全局安装Vue-cli"></a>2.2在全局安装Vue-cli</h3><pre><code>npm install -g vue-cli
+</code></pre><h3 id="2-3构建项目"><a href="#2-3构建项目" class="headerlink" title="2.3构建项目"></a>2.3构建项目</h3><pre><code>1. vue init webpack my_prj
+</code></pre><p>其中webpack是模板名称，my_prj是自定义的项目名称，命令执行之后，会在当前目录生成一个以该名称命名的项目文件夹。</p>
+<pre><code>2.cd my_prj
+</code></pre><p>使用cd命令切换到相应的文件目录中</p>
+<pre><code>3.cnpm install
+</code></pre><p>使用cnpm install为整个工程安装依赖包。这里咱们使用的是cnpm，防止下载资源的时候下载不了，因为cnpm是阿里的一个下载工具。</p>
+<pre><code>4.使用npm run dev启动工程
+</code></pre><p>因为在package.json中使用了<br><img src="http://upload-images.jianshu.io/upload_images/5877364-66da45407ca3ce0d.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="2017-05-11_130127.png"></p>
+<pre><code>5.打包上线
+</code></pre><p>自己编写的代码都放在src文件夹下，项目开发完成之后，可以输入npm run build来进行打包工作。</p>
 
       
 
@@ -260,7 +272,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://xbadao/2018/04/10/bb/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://xbadao/2018/06/05/Vue2.0基础-vue-cli搭建项目/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -274,18 +286,18 @@
   
 <nav id="article-nav">
   
-    <a href="/2018/04/10/Object/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2018/06/05/vue实践/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          (no title)
+          Vue 的实践
         
       </div>
     </a>
   
   
-    <a href="/2018/04/08/hello-world/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title"></div>
+    <a href="/2018/06/05/vue2.0生命周期（二）/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">vue2.0生命周期（二）</div>
       <i class="icon-circle-right"></i>
     </a>
   

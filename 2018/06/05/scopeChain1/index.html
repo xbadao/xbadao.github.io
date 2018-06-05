@@ -6,19 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="//xbadao">
-  <title>何晨苑</title>
+  <title>作用域链和闭包的理解 | 何晨苑</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="利用github的特性来建立自己的博客1.安装下载nodejs 1.1 Nodejs是一个运行环境，这个运行环境运行js代码。（浏览器）https://npm.taobao.org/mirrors/node/v8.9.3/ node-v8.9.3-x64.msi (请点击Nodejs下载地址)    1.2 node、npm管理工具验证是否安装成功    开始-&amp;gt;运行-&amp;gt;输入cmd">
+  <meta name="description" content="一、作用域链   什么是作用域链？我的理解就是哪些数据能够被访问，以及访问过程的某些机制；函数和对象一样，拥有可以通过代码访问的属性和仅供JavaScript引擎访问的内部属性，当函数被创建时，内部属性[[scope]]就会指向该函数的作用域链，而作用域链中储存了每个执行环境相关的变量对象。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="何晨苑">
-<meta property="og:url" content="//xbadao/2018/04/08/hello-world/index.html">
+<meta property="og:title" content="作用域链和闭包的理解">
+<meta property="og:url" content="//xbadao/2018/06/05/scopeChain1/index.html">
 <meta property="og:site_name" content="何晨苑">
-<meta property="og:description" content="利用github的特性来建立自己的博客1.安装下载nodejs 1.1 Nodejs是一个运行环境，这个运行环境运行js代码。（浏览器）https://npm.taobao.org/mirrors/node/v8.9.3/ node-v8.9.3-x64.msi (请点击Nodejs下载地址)    1.2 node、npm管理工具验证是否安装成功    开始-&amp;gt;运行-&amp;gt;输入cmd">
+<meta property="og:description" content="一、作用域链   什么是作用域链？我的理解就是哪些数据能够被访问，以及访问过程的某些机制；函数和对象一样，拥有可以通过代码访问的属性和仅供JavaScript引擎访问的内部属性，当函数被创建时，内部属性[[scope]]就会指向该函数的作用域链，而作用域链中储存了每个执行环境相关的变量对象。">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-04-10T12:48:04.855Z">
+<meta property="og:updated_time" content="2018-06-05T12:40:13.543Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="何晨苑">
-<meta name="twitter:description" content="利用github的特性来建立自己的博客1.安装下载nodejs 1.1 Nodejs是一个运行环境，这个运行环境运行js代码。（浏览器）https://npm.taobao.org/mirrors/node/v8.9.3/ node-v8.9.3-x64.msi (请点击Nodejs下载地址)    1.2 node、npm管理工具验证是否安装成功    开始-&amp;gt;运行-&amp;gt;输入cmd">
+<meta name="twitter:title" content="作用域链和闭包的理解">
+<meta name="twitter:description" content="一、作用域链   什么是作用域链？我的理解就是哪些数据能够被访问，以及访问过程的某些机制；函数和对象一样，拥有可以通过代码访问的属性和仅供JavaScript引擎访问的内部属性，当函数被创建时，内部属性[[scope]]就会指向该函数的作用域链，而作用域链中储存了每个执行环境相关的变量对象。">
   
     <link rel="alternative" href="/atom.xml" title="何晨苑" type="application/atom+xml">
   
@@ -154,48 +154,64 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-hello-world" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-scopeChain1" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      作用域链和闭包的理解
+    </h1>
+  
+
+        
+        <a href="/2018/06/05/scopeChain1/" class="archive-article-date">
+  	<time datetime="2018-06-05T12:45:27.192Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-06-05</time>
+</a>
+        
+      </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <hr>
-<h2 id="利用github的特性来建立自己的博客"><a href="#利用github的特性来建立自己的博客" class="headerlink" title="利用github的特性来建立自己的博客"></a>利用github的特性来建立自己的博客</h2><h3 id="1-安装下载nodejs"><a href="#1-安装下载nodejs" class="headerlink" title="1.安装下载nodejs"></a>1.安装下载nodejs</h3><blockquote>
-<p>1.1 Nodejs是一个运行环境，这个运行环境运行js代码。（浏览器）<br><a href="https://npm.taobao.org/mirrors/node/v8.9.3/" target="_blank" rel="noopener">https://npm.taobao.org/mirrors/node/v8.9.3/</a> node-v8.9.3-x64.msi (请点击Nodejs下载地址)</p>
-</blockquote>
-<hr>
+        <p>一、作用域链</p>
 <blockquote>
-<p>1.2 node、npm管理工具验证是否安装成功<br>    开始-&gt;运行-&gt;输入cmd (进入doc命令)<br>    <figure class="highlight crmsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">E:\&gt;<span class="keyword">node</span> <span class="title">-v</span> </span><br><span class="line">E:\&gt;npm -v</span><br></pre></td></tr></table></figure></p>
+<ul>
+<li>什么是作用域链？<br>我的理解就是哪些数据能够被访问，以及访问过程的某些机制；函数和对象一样，拥有可以通过代码访问的属性和仅供JavaScript引擎访问的内部属性，当函数被创建时，内部属性[[scope]]就会指向该函数的作用域链，而作用域链中储存了每个执行环境相关的变量对象。</li>
+</ul>
 </blockquote>
-<h3 id="2-安装hexo工具"><a href="#2-安装hexo工具" class="headerlink" title="2.安装hexo工具"></a>2.安装hexo工具</h3><blockquote>
-<p>2.1 切换以下npm下载源 (为了下载快一点，切换成淘宝镜像源。),再安装hexo工具<br>  <figure class="highlight avrasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="symbol">E:</span>\&gt;npm config <span class="keyword">set</span> registry https://registry.npm.taobao<span class="meta">.org</span></span><br><span class="line"><span class="symbol">E:</span>\&gt;npm install -g hexo-<span class="keyword">cli</span></span><br></pre></td></tr></table></figure></p>
-</blockquote>
-<h3 id="3-使用如下命令安装下载博客源代码"><a href="#3-使用如下命令安装下载博客源代码" class="headerlink" title="3. 使用如下命令安装下载博客源代码"></a>3. 使用如下命令安装下载博客源代码</h3><blockquote>
-<p>3.1 创建一个合适的文件(你的路径没有中文)并进入<br> <figure class="highlight avrasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="symbol">E:</span>\&gt;hexo init blog </span><br><span class="line"><span class="symbol">E:</span>\&gt;cd blog</span><br></pre></td></tr></table></figure></p>
-</blockquote>
+<a id="more"></a>
+<p> 二、 函数内部[[scope]]属性，是虚拟出来的，为了方便理解函数。下面，看一些列子：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> fun1,fun2;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">fun</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">var</span> num = <span class="number">10</span>;</span><br><span class="line">    fun1 = <span class="function"><span class="keyword">function</span> (<span class="params"></span>)</span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(++num);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">console</span>.log(num);</span><br><span class="line">    fun2 = <span class="function"><span class="keyword">function</span> (<span class="params"></span>)</span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(--num);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">fun();<span class="comment">//10</span></span><br><span class="line">fun1();<span class="comment">//11</span></span><br><span class="line">fun2();<span class="comment">//10</span></span><br></pre></td></tr></table></figure></p>
 <blockquote>
-<p>3.2 安装依赖文件<br><figure class="highlight taggerscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">E:<span class="symbol">\b</span>log<span class="symbol">\&gt;</span>npm install</span><br></pre></td></tr></table></figure></p>
+<p>&nbsp; fun1()运行的结果是11，fun2()运行的结果是10，因为这两个函数在同一父级作用域下，指向的是同一个作用域链；当函数fun1()执行时，变量num向上寻找值，函数fun1内部未找到，则向父级寻找获取，结果为11；函数fun2()执行时，由于和fun1()指向同一作用域链，此时num为11，执行后结果为10。</p>
 </blockquote>
-<hr>
+<p>二、闭包</p>
 <blockquote>
-<p>3.3 在本地开启一个服务器<br><figure class="highlight taggerscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">E:<span class="symbol">\b</span>log<span class="symbol">\&gt;</span>hexo server</span><br></pre></td></tr></table></figure></p>
+<ol>
+<li>闭包的理解<br>上篇已经简单的介绍了变量作用域，而闭包则与变量的作用域息息相关；<br>闭包：能够访问其他函数内部变量的函数</li>
+<li>闭包的实例<figure class="highlight actionscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">demo</span><span class="params">()</span></span>&#123;</span><br><span class="line">   <span class="keyword">var</span> n = <span class="number">100</span>;</span><br><span class="line">   <span class="function"><span class="keyword">function</span> <span class="title">demo1</span><span class="params">()</span></span>&#123;</span><br><span class="line">        alert(n);</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
 </blockquote>
-<hr>
-<h3 id="4-给hexo安装git工具插件"><a href="#4-给hexo安装git工具插件" class="headerlink" title="4. 给hexo安装git工具插件"></a>4. 给hexo安装git工具插件</h3><blockquote>
-<p>4.1安装git工具插件<br>  <figure class="highlight mipsasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">E:\<span class="keyword">blog\&gt;npm </span><span class="keyword">install </span>hexo-deployer-git --save</span><br></pre></td></tr></table></figure></p>
-</blockquote>
-<h3 id="5-配置远程仓库"><a href="#5-配置远程仓库" class="headerlink" title="5. 配置远程仓库"></a>5. 配置远程仓库</h3><blockquote>
-<p>5.1建立一个仓库xxx.github.io </p>
-</blockquote>
-<hr>
+<ul>
+<li><p>此时，无法在外部访问demo1的内部，但是呢，我们需要在外部访问，这时该怎么办呢？</p>
+<figure class="highlight actionscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">demo</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">var</span> n = <span class="number">100</span>;</span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">demo1</span><span class="params">()</span></span>&#123;</span><br><span class="line">        alert(n);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> demo1;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> fn = demo();</span><br><span class="line">fn();</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>当我们把demo1作为返回值返回，这时就可以在外部访问demo1的内部了</p>
+</li>
+</ul>
 <blockquote>
-<p>5.2 在hexo的工程中，根目录中有一个_config.yml的文件中配置如下:<br><figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">deploy</span>:</span><br><span class="line"><span class="attribute">type</span>: git</span><br><span class="line"><span class="attribute">repository</span>: git<span class="variable">@github</span>.<span class="attribute">com</span>:hjyl-cheng/hjyl-cheng.github.io.git</span><br><span class="line"><span class="attribute">branch</span>: master</span><br></pre></td></tr></table></figure></p>
+<ul>
+<li>闭包的注意事项<blockquote>
+<ul>
+<li>用途：可以在外部访问函数内部变量；这些变量的值始终保存在内存中</li>
+<li>由于闭包函数中的变量始终保存在内存中，则会消耗内存，所以，不要滥用闭包，会造成网页性能问题；在IE中会存在内存泄漏，解决方法是，退出函数之前，将不需要用的变量删除。</li>
+<li>闭包会在父函数外部，改变父函数内部变量的值。所以，如果你把父函数当作对象（object）使用，把闭包当作它的公用方法（Public Method），把内部变量当作它的私有属性（private value），这时一定要小心，不要随便改变父函数内部变量的值。</li>
+</ul>
 </blockquote>
-<h3 id="6-使用hexo将代码提交到远程仓库"><a href="#6-使用hexo将代码提交到远程仓库" class="headerlink" title="6. 使用hexo将代码提交到远程仓库"></a>6. 使用hexo将代码提交到远程仓库</h3><blockquote>
-<p>6.1先将之前生成的public文件夹删除掉并且生成html代码并且提交到github上。 g: 生成 d:提交<br> <figure class="highlight taggerscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">  E:<span class="symbol">\b</span>log<span class="symbol">\&gt;</span>hexo clean</span><br><span class="line">E:<span class="symbol">\b</span>log<span class="symbol">\&gt;</span>hexo d g</span><br></pre></td></tr></table></figure></p>
+</li>
+</ul>
 </blockquote>
-<h3 id="7-打开自己的网页"><a href="#7-打开自己的网页" class="headerlink" title="7.打开自己的网页"></a>7.打开自己的网页</h3><p>进入githu-&gt;点开所创建的项目xxx.github.io-&gt;Settings—&gt;GitHub Pages-&gt;打开 <a href="https://xxx.github.io/" target="_blank" rel="noopener">https://xxx.github.io/</a></p>
-<p>2018-4-8</p>
 
       
 
@@ -275,7 +291,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://xbadao/2018/04/08/hello-world/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://xbadao/2018/06/05/scopeChain1/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -289,15 +305,20 @@
   
 <nav id="article-nav">
   
-    <a href="/2018/04/10/bb/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2018/06/05/vue2.0生命周期（二）/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          (no title)
+          vue2.0生命周期（二）
         
       </div>
     </a>
   
+  
+    <a href="/2018/06/05/js的面向对象/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">js的面向对象（封装、继承、多态）</div>
+      <i class="icon-circle-right"></i>
+    </a>
   
 </nav>
 
